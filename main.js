@@ -1,4 +1,4 @@
-const size = 10;
+const size = 15;
 const border_width = 4;
 let board = [];
 let inputs = [];
@@ -29,7 +29,7 @@ const highlight = () => {
       }
     }
   }
-  board[gy][gx].div.style.backgroundColor = "#afeeee";
+  board[gy][gx].div.style.backgroundColor = "#87cefa";
 };
 
 const clear_color = () => {
@@ -262,6 +262,7 @@ const init = () => {
 
       let text = document.createElement("div");
       text.style.fontSize = `${size * 3 * 0.8}px`;
+      text.style.fontFamily = "Arial";
       text.style.display = "flex";
       text.style.alignItems = "center";
       text.style.justifyContent = "center";
@@ -278,6 +279,7 @@ const init = () => {
         memo.style.left = `${size * (z % 3)}px`;
         memo.style.top = `${size * Math.floor(z / 3)}px`;
         memo.style.fontSize = `${size * 0.8}px`;
+        memo.style.fontFamily = "Arial";
         memo.style.color = "#808080";
         memo.style.display = "flex";
         memo.style.alignItems = "center";
@@ -304,6 +306,7 @@ const init = () => {
     div.style.left = `${size * 3 * i}px`;
     div.style.top = `${size * 3 * 9.5}px`;
     div.style.fontSize = `${size * 3 * 0.8}px`;
+    div.style.fontFamily = "Arial";
     div.style.color = `#000`;
     div.style.display = "flex";
     div.style.alignItems = "center";
@@ -330,9 +333,12 @@ const init = () => {
   modechange.type = "button";
   modechange.value = "memo";
   modechange.style.fontSize = `${size}px`;
+  modechange.style.fontWeight = "bold";
   modechange.style.position = "absolute";
+  modechange.style.width = `${size * 3 * 1.4}px`
+  modechange.style.height = `${size * 2}px`
   modechange.style.top = `${size * 3 * 11}px`;
-  modechange.style.left = `${size * 3 * 1}px`;
+  modechange.style.left = `${size * 3 * 0.8}px`;
   modechange.onclick = () => {
     memomode = !memomode;
     for (let i = 0; i < 9; i++) {
@@ -345,9 +351,12 @@ const init = () => {
   clear.type = "button";
   clear.value = "clear";
   clear.style.fontSize = `${size}px`;
+  clear.style.fontWeight = "bold";
   clear.style.position = "absolute";
+  clear.style.width = `${size * 3 * 1.4}px`
+  clear.style.height = `${size * 2}px`
   clear.style.top = `${size * 3 * 11}px`;
-  clear.style.left = `${size * 3 * 4}px`;
+  clear.style.left = `${size * 3 * 3.8}px`;
   clear.onclick = () => {
     if (focus) {
       const [x, y] = focus;
@@ -366,9 +375,12 @@ const init = () => {
   hint.type = "button";
   hint.value = "hint";
   hint.style.fontSize = `${size}px`;
+  hint.style.fontWeight = "bold";
   hint.style.position = "absolute";
+  hint.style.width = `${size * 3 * 1.4}px`
+  hint.style.height = `${size * 2}px`
   hint.style.top = `${size * 3 * 11}px`;
-  hint.style.left = `${size * 3 * 7}px`;
+  hint.style.left = `${size * 3 * 6.8}px`;
   hint.onclick = () => {
     if (focus) {
       if (!solver()) {
@@ -388,9 +400,12 @@ const init = () => {
   check.type = "button";
   check.value = "check";
   check.style.fontSize = `${size}px`;
+  check.style.fontWeight = "bold";
   check.style.position = "absolute";
+  check.style.width = `${size * 3 * 1.4}px`
+  check.style.height = `${size * 2}px`
   check.style.top = `${size * 3 * 12}px`;
-  check.style.left = `${size * 3 * 1}px`;
+  check.style.left = `${size * 3 * 0.8}px`;
   check.onclick = () => {
     checker();
   };
@@ -400,9 +415,12 @@ const init = () => {
   solve.type = "button";
   solve.value = "solve";
   solve.style.fontSize = `${size}px`;
+  solve.style.fontWeight = "bold";
   solve.style.position = "absolute";
+  solve.style.width = `${size * 3 * 1.4}px`
+  solve.style.height = `${size * 2}px`
   solve.style.top = `${size * 3 * 12}px`;
-  solve.style.left = `${size * 3 * 4}px`;
+  solve.style.left = `${size * 3 * 3.8}px`;
   solve.onclick = () => {
     if (!solver()) {
       alert("failed");
@@ -420,9 +438,12 @@ const init = () => {
   reset.type = "button";
   reset.value = "reset";
   reset.style.fontSize = `${size}px`;
+  reset.style.fontWeight = "bold";
   reset.style.position = "absolute";
+  reset.style.width = `${size * 3 * 1.4}px`
+  reset.style.height = `${size * 2}px`
   reset.style.top = `${size * 3 * 12}px`;
-  reset.style.left = `${size * 3 * 7}px`;
+  reset.style.left = `${size * 3 * 6.8}px`;
   reset.onclick = () => {
     for (let y = 0; y < 9; y++) {
       for (let x = 0; x < 9; x++) {
